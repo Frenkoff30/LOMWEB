@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lom Srní · přírodní areál nejen pro potápěče</title>
+  <meta name="description" content="Přírodní areál Srní u Hlinska: zatopený žulový lom pro koupání, rekreaci, kempování a potápění. Čistá voda, tři zóny, klid přírody." />
+  <meta name="theme-color" content="#04161f" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Lom Srní · přírodní areál nejen pro potápěče" />
+  <meta property="og:description" content="Zatopený žulový lom u Hlinska. Koupání, kempování, potápění a klid přírody." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="cs_CZ" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#uvod">Přeskočit na obsah</a>
+
+  <!-- Ambientní voda přes celý web: klesající sediment, ryby, stoupající bubliny -->
+  <div class="ambient" aria-hidden="true">
+    <div class="snow" id="ambientSnow"></div>
+    <div class="fish" id="ambientFish"></div>
+    <div class="bubbles" id="ambientBubbles"></div>
+  </div>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a class="brand" href="#uvod" aria-label="Lom Srní — domů">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 7l4-4 5 5 4-4 5 5"/><path d="M2 17c2 0 2-1.5 4-1.5S10 17 12 17s2-1.5 4-1.5S18 17 20 17"/><path d="M2 21c2 0 2-1.5 4-1.5S10 21 12 21s2-1.5 4-1.5S18 21 20 21"/>
+          </svg>
+        </span>
+        <span class="brand__name"><b>LOM SRNÍ</b><span>Přírodní areál</span></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Hlavní navigace">
+        <a href="#uvod">Úvod</a>
+        <a href="#o-nas">O nás</a>
+        <a href="#sluzby">Služby</a>
+        <a href="#navstevni-rad">Návštěvní řád</a>
+        <a href="#aktuality">Aktuality</a>
+        <a href="#galerie">Fotogalerie</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div class="header__cta">
+        <a class="nav-phone" href="tel:+420777060596">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          777 060 596
+        </a>
+        <a class="btn btn--primary" href="#kontakt">Naplánovat návštěvu</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== HERO / ÚVOD — hladina ===================== -->
+  <section class="hero" id="uvod">
+    <div class="hero__slides" aria-hidden="true">
+      <img class="hero__slide is-active" src="assets/images/lomhero4.jpg" alt="" fetchpriority="high" />
+    </div>
+    <div class="hero__veil" aria-hidden="true"></div>
+
+    <div class="hero__inner">
+      <span class="hero__tag"><span class="dot"></span> Přírodní areál Srní &nbsp;·&nbsp; Hlinsko v Čechách</span>
+      <h1 class="hero__title">Lom Srní</h1>
+      <p class="hero__sub">Zatopený žulový lom s křišťálově čistou vodou. Tři zóny pro koupání, kemp i ponory. A na dně? Vrak letadla, který čeká právě na tebe.</p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#ponor">Ponořit se do areálu
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#kontakt">Kde nás najdete</a>
+      </div>
+    </div>
+
+    <a class="hero__scroll" href="#ponor" aria-label="Ponořit se níž">
+      <span>Ponoř se</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+    </a>
+  </section>
+
+  <!-- ===================== PONOR — těsně pod hladinou ===================== -->
+  <section class="dive-intro" id="ponor">
+    <div class="dive-intro__bg" aria-hidden="true">
+      <div class="dive-intro__surface"></div>
+      <div class="dive-intro__caustics"></div>
+      <div class="dive-intro__rays">
+        <span class="ray"></span><span class="ray"></span><span class="ray"></span><span class="ray"></span><span class="ray"></span>
+      </div>
+    </div>
+    <div class="container dive-intro__inner reveal">
+      <span class="eyebrow">Ponor začíná</span>
+      <h2 class="dive-intro__title"><span class="accent">Nad hladinou</span> to teprve začíná.</h2>
+      <p class="dive-intro__for">Voda pro <span class="rotator" id="rotator" aria-live="polite">rodiny</span></p>
+    </div>
+  </section>
+
+  <!-- ===================== O NÁS ===================== -->
+  <section class="section about" id="o-nas">
+    <div class="container">
+      <div class="bubble-panel reveal">
+      <div class="about__grid">
+        <div class="reveal">
+          <span class="eyebrow">O nás</span>
+          <h2 class="section-title">Bývalý žulový lom, který si vzala zpět příroda</h2>
+          <div class="about__lead">
+            <p>Přírodní areál Srní tvoří bývalý, nyní zatopený lom a přilehlé pozemky mezi obcemi <strong>Hlinsko v Čechách</strong> a <strong>Srní</strong>. V době první republiky a po válce se zde těžila kvalitní světlozrnná hlinecká žula; těžba byla ukončena v 60. letech 20. století.</p>
+            <p>Poté došlo k postupnému zaplavení těžební jámy spodní vodou a k obnovení přírodního charakteru lokality. Mezi místními je lom někdy přezdíván <strong>„Kovošrot“</strong>. Firma tu působila až do konce 90. let a pozůstatky po její činnosti dodnes najdete na dně lomu.</p>
+            <p>Dnes v areálu vznikly <strong>tři zóny</strong>: potápěčská, kempovací a rekreační, a o jeho zvelebování se průběžně staráme.</p>
+          </div>
+        </div>
+
+        <div class="reveal" data-delay="1">
+          <ol class="timeline">
+            <li class="tl-item"><span class="year">1. republika – 60. léta</span><p>Těžba kvalitní hlinecké žuly, následně ukončena a jáma se zaplavuje spodní vodou.</p></li>
+            <li class="tl-item"><span class="year">do konce 90. let</span><p>V prostoru nad lomem působí Kovošrot, pozůstatky jsou dodnes na dně.</p></li>
+            <li class="tl-item"><span class="year">2011</span><p>Správu přebírá Ing. Pavel Šenk (Top Dive) a s místními potápěči obnovuje zvelebování.</p></li>
+            <li class="tl-item"><span class="year">2011–2013</span><p>Pročištění okolí od náletových dřevin, zarybnění s důrazem na biodiverzitu, zpevnění příjezdové cesty.</p></li>
+            <li class="tl-item"><span class="year">2013</span><p>Ing. Pavel Šenk se stává majitelem lomu a okolních pozemků.</p></li>
+            <li class="tl-item"><span class="year">2015–2023</span><p>Likvidace hald odpadního kamene, zavezení zeminou, zatravnění a opětovné osázení dřevinami.</p></li>
+            <li class="tl-item"><span class="year">dnes</span><p>Tři funkční zóny, zpevněná parkoviště a zázemí pro návštěvníky i potápěče.</p></li>
+          </ol>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ZÓNY ===================== -->
+  <section class="section zones">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Areál</span>
+        <h2 class="section-title">Tři zóny, jeden lom</h2>
+        <p class="section-lead">Areál je rozdělen tak, aby si k vodě našel cestu každý, od rodiny s dětmi po zkušeného potápěče.</p>
+      </div>
+      <div class="zone-grid">
+        <article class="zone reveal">
+          <div class="zone__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2 0 2-1.5 4-1.5S8 12 10 12s2-1.5 4-1.5S16 12 18 12s2-1.5 4-1.5"/><path d="M2 17c2 0 2-1.5 4-1.5S8 17 10 17s2-1.5 4-1.5S16 17 18 17s2-1.5 4-1.5"/><circle cx="12" cy="5" r="2.5"/></svg></div>
+          <h3>Rekreační zóna</h3>
+          <p>Severní a východní strana lomu slouží širší veřejnosti: koupání, slunění a odpočinek u čisté vody.</p>
+        </article>
+        <article class="zone reveal" data-delay="1">
+          <div class="zone__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 9-15 9 15"/><path d="M12 6v15"/><path d="M7.5 13.5 12 12l4.5 1.5"/></svg></div>
+          <h3>Kempovací zóna</h3>
+          <p>Dvě kempovací plochy a budova s občerstvením, toaletami, půjčovnou výstroje a kompresorovnou.</p>
+        </article>
+        <article class="zone reveal" data-delay="2">
+          <div class="zone__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M12 7h4l3 3"/><path d="M5 21c1.5-2 3-3 5-3s2 1 3 1"/><path d="M2 17c2 0 2-1.5 4-1.5"/></svg></div>
+          <h3>Potápěčská zóna</h3>
+          <p>Srdce lomu pro ponory: čistá voda, podvodní atrakce a zázemí provozované od počátku potápěči.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLUŽBY ===================== -->
+  <section class="section services" id="sluzby">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Služby</span>
+        <h2 class="section-title">Co u nás zažijete</h2>
+        <p class="section-lead">Dvě hlavní cesty k vodě: bezstarostná rekreace na hladině a dobrodružství pod ní.</p>
+      </div>
+
+      <!-- Rekreace -->
+      <article class="feature reveal">
+        <div class="feature__media">
+          <img src="assets/images/lommolo.jpg" alt="Molo a hladina lomu Srní" loading="lazy" />
+          <span class="feature__badge">Rekreace a koupání</span>
+        </div>
+        <div class="feature__text">
+          <h3>Rekreace &amp; koupání</h3>
+          <p>Přírodní koupaliště s čistou vodou v klidu lesa. Žádné chlorové bazény, jen lom, slunce a prostor k odpočinku.</p>
+          <ul class="feature__list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Rekreační zóna na severní a východní straně lomu</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Občerstvení, toalety a zpevněná parkoviště</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Kempování bez nutnosti rezervace, přijeďte kdykoli</li>
+          </ul>
+          <a class="btn btn--outline feature__cta" href="#cenik">Zobrazit ceník</a>
+        </div>
+      </article>
+
+      <!-- Potápění -->
+      <article class="feature reveal">
+        <div class="feature__media">
+          <img src="assets/images/lompotapecskevybaveni.jpg" alt="Potápěčská výstroj připravená k ponoru" loading="lazy" />
+          <span class="feature__badge">Potápění</span>
+        </div>
+        <div class="feature__text">
+          <h3>Potápění</h3>
+          <p>Lom provozovaný potápěči pro potápěče. Zázemí, půjčovna výstroje, kompresorovna a podvodní atrakce, na kterých se stále pracuje.</p>
+          <ul class="feature__list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Půjčovna potápěčské výstroje a kompresorovna</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Podvodní atrakce a pozůstatky historického „Kovošrotu“</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Denní vstup pro potápěče za 200 Kč</li>
+          </ul>
+          <a class="btn btn--amber feature__cta" href="#kontakt">Domluvit ponor</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== POTÁPĚNÍ — podvodní atrakce (tmavá) ===================== -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Pod hladinou</span>
+        <h2 class="section-title">Co na vás čeká ve hloubce</h2>
+        <p class="section-lead">Lom se neustále rozvíjí. V roce 2026 přibývají nové podvodní atrakce a vylepšené molo.</p>
+      </div>
+      <div class="dive-attractions">
+        <article class="dive-card reveal">
+          <div class="dive-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
+          <span class="depth is-new">Novinka 2026</span>
+          <h4>Vrak letadla</h4>
+          <p>Potopený letecký vrak jako nová dominanta ponorů pro pokročilé i fotografy.</p>
+        </article>
+        <article class="dive-card reveal" data-delay="1">
+          <div class="dive-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17h4V5H2v12h3"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/><path d="M14 9h4l4 4v4h-2"/></svg></div>
+          <span class="depth is-new">Novinka 2026</span>
+          <h4>Hasičský vůz</h4>
+          <p>Další objekt pro průzkum ve vodě, atrakce která láká k opakovaným ponorům.</p>
+        </article>
+        <article class="dive-card reveal" data-delay="2">
+          <div class="dive-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5v14"/><path d="M21 5v14"/><path d="M3 9h18"/><path d="M7 9v10"/><path d="M11 9v10"/><path d="M15 9v10"/></svg></div>
+          <span class="depth is-up">Vylepšeno</span>
+          <h4>Potápěčské molo</h4>
+          <p>Bezpečnější a pohodlnější vstupy do vody a nové molo pro snadný start ponoru.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CENÍK ===================== -->
+  <section class="section pricing" id="cenik">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Ceník 2026</span>
+        <h2 class="section-title">Jasné ceny, žádná překvapení</h2>
+        <p class="section-lead">Vstupné se liší podle sezóny. Na kempování neprovádíme rezervace, můžete přijet kdykoli bez nich.</p>
+      </div>
+
+      <div class="price-grid">
+        <div class="price-card reveal">
+          <div class="price-card__head">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2 0 2-1.5 4-1.5S8 12 10 12s2-1.5 4-1.5S16 12 18 12s2-1.5 4-1.5"/><path d="M2 17c2 0 2-1.5 4-1.5S8 17 10 17s2-1.5 4-1.5S16 17 18 17s2-1.5 4-1.5"/><circle cx="12" cy="4.5" r="2"/></svg></span>
+            <h3>Koupání</h3>
+          </div>
+          <div class="price-row"><span>Květen–červen, září–říjen</span><strong>30–100&nbsp;Kč</strong></div>
+          <div class="price-row"><span>Červenec–srpen</span><strong>80–120&nbsp;Kč</strong></div>
+          <div class="price-row"><span>Roční permanentka</span><strong>2 000&nbsp;Kč</strong></div>
+        </div>
+
+        <div class="price-card featured reveal" data-delay="1">
+          <span class="pc-ribbon">Pro potápěče</span>
+          <div class="price-card__head">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M12 12v4"/><path d="M8 20c0-2 1.8-4 4-4s4 2 4 4"/></svg></span>
+            <h3>Potápění</h3>
+          </div>
+          <div class="price-row"><span>Vstup na den</span><strong>200&nbsp;Kč</strong></div>
+          <div class="price-row"><span>Půjčovna výstroje</span><strong>na místě</strong></div>
+          <div class="price-row"><span>Plnění lahví</span><strong>kompresorovna</strong></div>
+        </div>
+
+        <div class="price-card reveal" data-delay="2">
+          <div class="price-card__head">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 9-15 9 15"/><path d="M12 6v15"/></svg></span>
+            <h3>Kempování</h3>
+          </div>
+          <div class="price-row"><span>Za osobu / den</span><strong>100–200&nbsp;Kč</strong></div>
+          <div class="price-row"><span>Rezervace</span><strong>není nutná</strong></div>
+          <div class="price-row"><span>Přípojky voda / el.</span><strong>2026</strong></div>
+        </div>
+
+        <div class="price-card reveal" data-delay="3">
+          <div class="price-card__head">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></span>
+            <h3>Ubytování</h3>
+          </div>
+          <div class="price-row"><span>Pokoj / noc</span><strong>500&nbsp;Kč</strong></div>
+          <div class="price-row"><span>Mobilhome / noc</span><strong>1 000&nbsp;Kč</strong></div>
+          <div class="price-row"><span>Místní poplatek obci</span><strong>20&nbsp;Kč</strong></div>
+        </div>
+      </div>
+
+      <div class="price-note reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        <p><b>Dobré vědět:</b> Od roku 2025 platí ubytovaní místní ubytovací poplatek obci Hlinsko ve výši 20 Kč. Uvedené ceny jsou orientační podle sezóny 2026, aktuální sazby ověřte na místě.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NÁVŠTĚVNÍ ŘÁD ===================== -->
+  <section class="section rules" id="navstevni-rad">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Návštěvní řád</span>
+        <h2 class="section-title">Ať si areál užijeme všichni</h2>
+        <p class="section-lead">Pár základních pravidel, díky kterým zůstává lom čistý, bezpečný a příjemný. Plné znění návštěvního řádu je k dispozici v areálu.</p>
+      </div>
+      <div class="rules__grid">
+        <article class="rule reveal">
+          <div class="rule__no">01</div>
+          <h4>Vstup na vlastní nebezpečí</h4>
+          <p>Koupání i pohyb v areálu jsou na vlastní zodpovědnost. Dbejte opatrnosti u břehů a ve vodě.</p>
+        </article>
+        <article class="rule reveal" data-delay="1">
+          <div class="rule__no">02</div>
+          <h4>Potápění s kvalifikací</h4>
+          <p>Ponory provádějte v souladu se svou kvalifikací a po domluvě se zázemím lomu.</p>
+        </article>
+        <article class="rule reveal" data-delay="2">
+          <div class="rule__no">03</div>
+          <h4>Pořádek a odpad</h4>
+          <p>Udržujte čistotu, odpad odneste nebo vytřiďte. Chráníme kvalitu vody i okolní přírody.</p>
+        </article>
+        <article class="rule reveal" data-delay="3">
+          <div class="rule__no">04</div>
+          <h4>Ohleduplnost a klid</h4>
+          <p>Respektujte ostatní návštěvníky, přírodu a noční klid. Areál je především místem odpočinku.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AKTUALITY 2026 ===================== -->
+  <section class="section news" id="aktuality">
+    <div class="container">
+      <div class="news__grid">
+        <div class="news__panel reveal">
+          <div class="year-badge">2026</div>
+          <h3>Co je u nás nového</h3>
+          <p>Sezóna 2026 přináší řadu vylepšení pro pohodlí návštěvníků i potápěčů. Pracujeme na tom, aby byl areál rok od roku lepší.</p>
+        </div>
+        <div class="reveal" data-delay="1">
+          <ul class="checklist">
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Upravené vstupy do vody pro vyšší bezpečnost a pohodlí</span></li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Nové potápěčské molo a podvodní atrakce (vrak letadla, hasičský vůz)</span></li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Rozšíření kempu o přípojky vody a elektřiny</span></li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Nové přístřešky pro potápěče i návštěvníky</span></li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Další toalety a sprchy</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOTOGALERIE ===================== -->
+  <section class="section gallery" id="galerie">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Fotogalerie</span>
+        <h2 class="section-title">Podívejte se k nám</h2>
+        <p class="section-lead">Náhled atmosféry areálu. Galerie se naplní reálnými fotkami lomu, kempu a ponorů.</p>
+      </div>
+      <div class="gallery__grid">
+        <figure class="gphoto wide tall reveal"><img src="assets/images/lomfoto1.jpg" alt="Hladina lomu Srní" loading="lazy" /><figcaption class="cap">Hladina lomu</figcaption></figure>
+        <figure class="gphoto reveal" data-delay="1"><img src="assets/images/lom2.webp" alt="Žulové stěny lomu" loading="lazy" /><figcaption class="cap">Žulové stěny</figcaption></figure>
+        <figure class="gphoto reveal" data-delay="2"><img src="assets/images/lomohniste.jpg" alt="Ohniště v areálu" loading="lazy" /><figcaption class="cap">Večery u ohně</figcaption></figure>
+        <figure class="gphoto reveal" data-delay="1"><img src="assets/images/lom6.webp" alt="Ponor pod hladinu" loading="lazy" /><figcaption class="cap">Ponor pod hladinu</figcaption></figure>
+        <figure class="gphoto reveal" data-delay="2"><img src="assets/images/lomsezeni.jpg" alt="Posezení u vody" loading="lazy" /><figcaption class="cap">Posezení u vody</figcaption></figure>
+        <figure class="gphoto wide reveal"><img src="assets/images/lomfoto3.jpg" alt="Rekreační zóna lomu" loading="lazy" /><figcaption class="cap">Rekreační zóna</figcaption></figure>
+        <figure class="gphoto reveal" data-delay="1"><img src="assets/images/lommaringotky.jpg" alt="Maringotky v kempu" loading="lazy" /><figcaption class="cap">Kemp a maringotky</figcaption></figure>
+        <figure class="gphoto reveal" data-delay="2"><img src="assets/images/lomdetskekoupalko.jpg" alt="Dětské koupaliště" loading="lazy" /><figcaption class="cap">Dětské koupaliště</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== KONTAKT ===================== -->
+  <section class="section contact" id="kontakt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Kontakt</span>
+        <h2 class="section-title">Přijeďte se podívat</h2>
+        <p class="section-lead">Přírodní areál Srní leží mezi obcí Srní a Hlinskem v Čechách. Na kempování není potřeba rezervace.</p>
+      </div>
+
+      <div class="contact__grid">
+        <div>
+          <div class="contact__cards">
+            <a class="cc" href="https://mapy.com/?x=15.881317&y=49.777267&z=15&source=coor&id=15.881317%2C49.777267" target="_blank" rel="noopener">
+              <span class="cc__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <span><small>GPS souřadnice</small><b>N 49 46.636, E 015 52.879</b></span>
+            </a>
+            <a class="cc" href="tel:+420777060596">
+              <span class="cc__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <span><small>Telefon · Ing. Pavel Šenk, majitel</small><b>777 060 596</b></span>
+            </a>
+            <a class="cc" href="mailto:info@lomsrni.cz">
+              <span class="cc__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+              <span><small>E-mail</small><b>info@lomsrni.cz</b></span>
+            </a>
+            <a class="cc" href="mailto:pavel@topdive.cz">
+              <span class="cc__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+              <span><small>E-mail · potápění</small><b>pavel@topdive.cz</b></span>
+            </a>
+          </div>
+
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="field">
+              <label for="cf-name">Jméno</label>
+              <input id="cf-name" name="name" type="text" placeholder="Vaše jméno" required />
+            </div>
+            <div class="field">
+              <label for="cf-email">E-mail</label>
+              <input id="cf-email" name="email" type="email" placeholder="vas@email.cz" required />
+            </div>
+            <div class="field full">
+              <label for="cf-msg">Zpráva</label>
+              <textarea id="cf-msg" name="message" placeholder="Dotaz na ubytování, ponory, akce…" required></textarea>
+            </div>
+            <div class="full">
+              <button class="btn btn--primary" type="submit">Odeslat zprávu
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              </button>
+              <p class="form-note">Demo formulář pro účely návrhu. Napojení na e-mail doplníme při spuštění.</p>
+              <p class="form-ok" id="formOk">Děkujeme! Toto je ukázkový formulář, zprávu zatím neodesílá.</p>
+            </div>
+          </form>
+        </div>
+
+        <div class="contact__map reveal" data-delay="1">
+          <iframe
+            title="Mapa — Přírodní areál Srní"
+            loading="lazy"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=15.8513%2C49.7653%2C15.9113%2C49.7893&layer=mapnik&marker=49.777267%2C15.881317">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DNO LOMU + FOOTER ===================== -->
+  <section class="deep">
+    <div class="deep__scene" aria-hidden="true">
+      <svg viewBox="0 0 1440 720" preserveAspectRatio="xMidYMax slice">
+        <defs>
+          <radialGradient id="abyssGlow" cx="0.5" cy="0.45" r="0.55">
+            <stop offset="0" stop-color="#22d3ee" stop-opacity="0.16"/>
+            <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#02121b" stop-opacity="0"/>
+            <stop offset="0.5" stop-color="#020d15" stop-opacity="0.85"/>
+            <stop offset="1" stop-color="#000408" stop-opacity="1"/>
+          </linearGradient>
+          <linearGradient id="hull" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#13455c"/>
+            <stop offset="1" stop-color="#04141d"/>
+          </linearGradient>
+          <linearGradient id="hullDark" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#0a2e3f"/>
+            <stop offset="1" stop-color="#030f16"/>
+          </linearGradient>
+          <linearGradient id="beamA" gradientUnits="userSpaceOnUse" x1="356" y1="369" x2="315" y2="508">
+            <stop offset="0" stop-color="#d9f4ff" stop-opacity="0.55"/>
+            <stop offset="0.6" stop-color="#bfe9fb" stop-opacity="0.16"/>
+            <stop offset="1" stop-color="#bfe9fb" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="beamB" gradientUnits="userSpaceOnUse" x1="957" y1="359" x2="918" y2="472">
+            <stop offset="0" stop-color="#d9f4ff" stop-opacity="0.55"/>
+            <stop offset="0.6" stop-color="#bfe9fb" stop-opacity="0.16"/>
+            <stop offset="1" stop-color="#bfe9fb" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="lampGlow" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0" stop-color="#eaffff" stop-opacity="0.95"/>
+            <stop offset="1" stop-color="#bdf3ff" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7"/></filter>
+        </defs>
+
+        <!-- vzdálené ryby -->
+        <g fill="#0a2230" opacity="0.55">
+          <path d="M200 150 q20 -11 40 0 q-11 9 -40 0 z M193 150 l-13 -8 0 16 z"/>
+          <path d="M250 174 q15 -9 30 0 q-9 7 -30 0 z M244 174 l-10 -6 0 12 z"/>
+          <path d="M1230 130 q18 -10 36 0 q-10 8 -36 0 z M1223 130 l-12 -7 0 14 z"/>
+        </g>
+
+        <!-- VRAK HASIČSKÉHO AUTA -->
+        <g transform="translate(210 498) rotate(-3) scale(0.82)" stroke="#2c84a0" stroke-opacity="0.4" stroke-width="2.4" stroke-linejoin="round">
+          <path d="M44 18 L 250 8 L 250 16 L 46 26 Z" fill="#0a3145"/>                        <!-- žebřík -->
+          <path d="M8 28 H 252 a10 10 0 0 1 10 10 V 74 a8 8 0 0 1 -8 8 H 8 a8 8 0 0 1 -8 -8 V 36 a8 8 0 0 1 8 -8 Z" fill="url(#hull)"/> <!-- korba -->
+          <path d="M0 36 q0 -8 8 -8 h 60 v 36 h -68 Z" fill="#0e3c52"/>                       <!-- kabina -->
+          <rect x="10" y="34" width="42" height="18" rx="3" fill="#0a2a3a" stroke="none" opacity="0.9"/> <!-- okno -->
+          <rect x="150" y="36" width="92" height="40" rx="4" fill="#0a3145" opacity="0.55"/>   <!-- panel -->
+          <rect x="22" y="18" width="16" height="10" rx="2" fill="#0c374b"/>                    <!-- maják -->
+          <circle cx="64" cy="88" r="22" fill="#04141d"/><circle cx="64" cy="88" r="10" fill="#0c374b" stroke="none"/>
+          <circle cx="214" cy="88" r="22" fill="#04141d"/><circle cx="214" cy="88" r="10" fill="#0c374b" stroke="none"/>
+        </g>
+
+        <!-- VRAK STARÉHO LETADLA S VRTULÍ -->
+        <g transform="translate(770 452) rotate(-7) scale(0.6)" stroke="#2c84a0" stroke-opacity="0.4" stroke-width="2.6" stroke-linejoin="round">
+          <path d="M250 42 L 360 -2 L 392 0 L 300 46 Z" fill="#0a2e3f"/>                                 <!-- vzdálené křídlo -->
+          <path d="M430 32 L 520 -40 L 548 -34 L 478 38 Z" fill="url(#hullDark)"/>                       <!-- svislá ocasní plocha -->
+          <path d="M500 50 L 575 40 L 590 50 L 512 64 Z" fill="url(#hullDark)"/>                         <!-- vodorovná ocasní plocha -->
+          <path d="M18 42 C 60 24 300 24 430 34 C 500 40 540 50 560 58 C 540 66 500 76 430 82 C 300 92 60 92 18 74 C 8 64 8 52 18 42 Z" fill="url(#hull)"/> <!-- trup -->
+          <path d="M150 26 Q 200 6 250 16 L 240 30 L 150 30 Z" fill="#0e3c52"/>                          <!-- kokpit -->
+          <g stroke="none" fill="#0a2a3a" opacity="0.85"><circle cx="180" cy="46" r="5"/><circle cx="210" cy="46" r="5"/><circle cx="240" cy="46" r="5"/><circle cx="270" cy="46" r="5"/><circle cx="300" cy="47" r="5"/><circle cx="330" cy="47" r="5"/></g>
+          <path d="M210 80 L 150 210 L 202 210 L 300 84 Z" fill="#0a3145"/>                               <!-- hlavní křídlo do dna -->
+          <path d="M6 44 q-14 2 -16 14 q2 12 16 14 l 16 -3 0 -22 z" fill="#0c374b"/>                      <!-- kryt motoru -->
+          <g transform="translate(-2 58)">                                                               <!-- vrtule -->
+            <g class="prop">
+              <ellipse cx="0" cy="0" rx="6" ry="58" fill="#0c374b"/>
+              <ellipse cx="0" cy="0" rx="6" ry="58" transform="rotate(120)" fill="#0c374b"/>
+              <ellipse cx="0" cy="0" rx="6" ry="58" transform="rotate(240)" fill="#0c374b"/>
+              <circle cx="0" cy="0" r="9" fill="#0f4258" stroke="none"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- POTÁPĚČI S ČELOVKAMI -->
+        <g class="divers">
+          <!-- světelné kužely -->
+          <g class="beam" filter="url(#soft)">
+            <path d="M356 369 L 250 505 L 372 512 Z" fill="url(#beamA)"/>
+            <path d="M957 359 L 850 470 L 980 480 Z" fill="url(#beamB)"/>
+          </g>
+          <!-- nasvícené plochy na vracích -->
+          <g class="pool" filter="url(#soft)">
+            <ellipse cx="312" cy="512" rx="86" ry="26" fill="#cdeffd" opacity="0.17"/>
+            <ellipse cx="918" cy="472" rx="100" ry="30" fill="#cdeffd" opacity="0.15"/>
+          </g>
+          <!-- potápěč A — svítí na hasičský vůz (vlevo) -->
+          <g transform="translate(320 360)">
+            <ellipse cx="0" cy="0" rx="28" ry="11" fill="#0b2e3f" stroke="#39a7c6" stroke-opacity="0.55" stroke-width="1.8"/>
+            <path d="M-28 -2 l-18 -9 l0 18 z" fill="#0a2733" stroke="#39a7c6" stroke-opacity="0.45" stroke-width="1.4"/>
+            <rect x="-22" y="-13" width="16" height="22" rx="4" fill="#08222f" stroke="#39a7c6" stroke-opacity="0.4" stroke-width="1.4"/>
+            <circle cx="22" cy="-4" r="9" fill="#0d384c" stroke="#39a7c6" stroke-opacity="0.6" stroke-width="1.8"/>
+            <path d="M13 6 q13 8 24 4" stroke="#0d384c" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+            <circle class="lamp" cx="36" cy="9" r="12" fill="url(#lampGlow)"/>
+            <circle cx="36" cy="9" r="3.4" fill="#eaffff"/>
+          </g>
+          <!-- potápěč B — svítí na vrak letadla (vpravo) -->
+          <g transform="translate(990 350) scale(-1 1)">
+            <ellipse cx="0" cy="0" rx="27" ry="10" fill="#0b2e3f" stroke="#39a7c6" stroke-opacity="0.55" stroke-width="1.8"/>
+            <path d="M-27 -2 l-17 -8 l0 16 z" fill="#0a2733" stroke="#39a7c6" stroke-opacity="0.45" stroke-width="1.4"/>
+            <rect x="-21" y="-12" width="15" height="20" rx="4" fill="#08222f" stroke="#39a7c6" stroke-opacity="0.4" stroke-width="1.4"/>
+            <circle cx="20" cy="-4" r="8.5" fill="#0d384c" stroke="#39a7c6" stroke-opacity="0.6" stroke-width="1.8"/>
+            <path d="M12 6 q12 7 22 4" stroke="#0d384c" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <circle class="lamp" cx="33" cy="9" r="11" fill="url(#lampGlow)"/>
+            <circle cx="33" cy="9" r="3.2" fill="#eaffff"/>
+          </g>
+        </g>
+
+        <!-- mořské dno (zasypává spodek vraku) -->
+        <path d="M0 720 L0 600 Q 240 558 540 596 Q 840 632 1100 588 Q 1300 558 1440 600 L1440 720 Z" fill="url(#floor)"/>
+        <!-- kameny -->
+        <g fill="#020a11"><ellipse cx="250" cy="612" rx="110" ry="38"/><ellipse cx="1180" cy="624" rx="140" ry="46"/></g>
+      </svg>
+    </div>
+
+    <div class="deep__intro reveal">
+      <span class="eyebrow">Na dně lomu</span>
+      <h2 class="section-title">Tady ponor končí</h2>
+      <p class="section-lead">Vrak starého letadla i další atrakce odpočívají v hlubině. Odměna pro každého, kdo se potopí až úplně dolů.</p>
+    </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div>
+          <a class="brand" href="#uvod" aria-label="Lom Srní — domů">
+            <span class="brand__mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l4-4 5 5 4-4 5 5"/><path d="M2 17c2 0 2-1.5 4-1.5S10 17 12 17s2-1.5 4-1.5S18 17 20 17"/><path d="M2 21c2 0 2-1.5 4-1.5S10 21 12 21s2-1.5 4-1.5S18 21 20 21"/></svg>
+            </span>
+            <span class="brand__name"><b>LOM SRNÍ</b><span>Přírodní areál</span></span>
+          </a>
+          <p>Zatopený žulový lom mezi Hlinskem v Čechách a Srní. Přírodní areál pro koupání, kempování a potápění, provozovaný Lom Srní s.r.o.</p>
+        </div>
+        <div>
+          <h5>Areál</h5>
+          <nav class="footer__links" aria-label="Patička — odkazy">
+            <a href="#o-nas">O nás</a>
+            <a href="#sluzby">Služby</a>
+            <a href="#cenik">Ceník</a>
+            <a href="#navstevni-rad">Návštěvní řád</a>
+            <a href="#galerie">Fotogalerie</a>
+          </nav>
+        </div>
+        <div>
+          <h5>Kontakt</h5>
+          <nav class="footer__links" aria-label="Patička — kontakt">
+            <a href="tel:+420777060596">777 060 596</a>
+            <a href="mailto:info@lomsrni.cz">info@lomsrni.cz</a>
+            <a href="mailto:pavel@topdive.cz">pavel@topdive.cz</a>
+            <a href="#kontakt">N 49 46.636, E 015 52.879</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> Lom Srní s.r.o. · všechna práva vyhrazena.</span>
+        <span>Návrh nového webu • redesign</span>
+      </div>
+    </div>
+  </footer>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Zavřít">×</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
+  <!-- HUD: zpět nahoru + hloubkoměr -->
+  <div class="depth-hud">
+    <button class="to-top" id="toTop" type="button" aria-label="Zpět nahoru" title="Zpět nahoru">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m6 11 6-6 6 6"/></svg>
+    </button>
+    <div class="depth-meter" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v16"/><path d="m6 13 6 6 6-6"/></svg>
+      <span id="depthValue">0 m</span>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
