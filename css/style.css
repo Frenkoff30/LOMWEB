@@ -49,7 +49,7 @@
   --fs-h3:    clamp(1.25rem, 2.2vw, 1.6rem);
   --fs-lead:  clamp(1.05rem, 1.6vw, 1.3rem);
 
-  --container: 1240px;
+  --container: 1140px;
   --radius:    22px;
   --radius-sm: 14px;
   --shadow:    0 28px 70px -28px rgba(0, 0, 0, 0.7);
@@ -61,7 +61,8 @@
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: var(--abyss); }
+/* Mírné zmenšení celé stránky — víc prostoru po stranách */
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: var(--abyss); font-size: 94%; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -206,7 +207,7 @@ h1, h2, h3, h4, h5 {
   transition: background .4s var(--ease), backdrop-filter .4s var(--ease), box-shadow .4s var(--ease), height .3s var(--ease);
 }
 .header__inner {
-  width: min(100% - 2.5rem, 1340px); margin-inline: auto;
+  width: min(100% - 2.5rem, 1240px); margin-inline: auto;
   display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
 }
 .header.scrolled {
@@ -400,7 +401,7 @@ body.nav-open .nav-toggle span:nth-child(3) { top: 22px; transform: rotate(-45de
 
 .hero__titlewrap { position: relative; }
 .hero__title {
-  font-family: var(--font-display); font-weight: 700; font-size: clamp(4rem, 15vw, 12rem);
+  font-family: var(--font-display); font-weight: 700; font-size: clamp(3.2rem, 12vw, 9.5rem);
   line-height: 0.9; letter-spacing: -0.04em; margin: 1.2rem 0 0; color: #fff;
   filter: drop-shadow(0 12px 38px rgba(0, 0, 0, 0.55));
 }
@@ -413,7 +414,7 @@ body.nav-open .nav-toggle span:nth-child(3) { top: 22px; transform: rotate(-45de
   color: var(--cyan);
   -webkit-text-fill-color: var(--cyan);
 }
-.hero__sub { font-size: clamp(0.98rem, 1.35vw, 1.15rem); color: #ffffff; font-weight: 500; max-width: 64ch; margin-top: 1.4rem; text-shadow: 0 3px 22px rgba(0, 0, 0, 0.7); }
+.hero__sub { font-size: clamp(0.92rem, 1.2vw, 1.05rem); color: #ffffff; font-weight: 500; max-width: 66ch; margin-top: 1.3rem; text-shadow: 0 3px 22px rgba(0, 0, 0, 0.7); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.4rem; }
 
 /* Akcent barva (sdílený) */
