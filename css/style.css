@@ -79,6 +79,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  position: relative;
   /* Sestup do hloubky: z tmavě modré až do úplné černé na dně */
   background:
     linear-gradient(180deg,
@@ -118,6 +119,15 @@ h1, h2, h3, h4, h5 {
 
 /* ---------- Ambient — bublinky přes celý web ---------- */
 .ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+
+/* Bioluminiscence — jemně pulzující azurové tečky (plankton) */
+.biolum { position: absolute; inset: 0; }
+.biolum span {
+  position: absolute; width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(34, 211, 238, 0.9); box-shadow: 0 0 9px 2px rgba(34, 211, 238, 0.55);
+  opacity: 0; animation: bioPulse ease-in-out infinite;
+}
+@keyframes bioPulse { 0%, 100% { opacity: 0; transform: scale(0.4); } 45% { opacity: 0.8; transform: scale(1); } }
 
 /* ---------- HUD: hloubkoměr + zpět nahoru ---------- */
 .depth-hud {
@@ -269,28 +279,78 @@ body.nav-open .nav-toggle span:nth-child(3) { top: 22px; transform: rotate(-45de
 }
 .hero__slide.is-active { opacity: 1; }
 
-/* Závoj nad fotkou — světlo shora + ztmavení dolů (přechod k ponoru) */
+/* Závoj nad fotkou — ztmavení pro čitelnost textu */
 .hero__veil {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
-    radial-gradient(120% 70% at 50% -6%, rgba(150, 222, 245, 0.22), transparent 52%),
+    radial-gradient(120% 70% at 50% -6%, rgba(150, 222, 245, 0.10), transparent 52%),
     linear-gradient(180deg,
-      rgba(3, 22, 32, 0.28) 0%,
-      rgba(3, 20, 30, 0.20) 32%,
-      rgba(4, 28, 40, 0.34) 70%,
-      rgba(5, 34, 47, 0.52) 100%);
+      rgba(2, 10, 16, 0.58) 0%,
+      rgba(2, 12, 20, 0.54) 32%,
+      rgba(2, 15, 24, 0.62) 70%,
+      rgba(3, 20, 30, 0.74) 100%);
 }
 .hero .bubbles { z-index: 1; }
 
-/* Šipka „ponoř se" */
-.hero__scroll {
-  position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 3;
-  display: inline-flex; flex-direction: column; align-items: center; gap: 5px;
-  color: #e3f4fd; font-family: var(--font-display); font-weight: 600; font-size: 0.72rem;
-  letter-spacing: 0.22em; text-transform: uppercase; text-shadow: 0 2px 12px rgba(0,0,0,.6);
+/* Sluneční záře vpravo nahoře (kde je slunce na fotce) */
+.hero__sun {
+  position: absolute; top: -10%; right: 2%; z-index: 1; pointer-events: none;
+  width: 40vw; max-width: 540px; height: 40vw; max-height: 540px;
+  background: radial-gradient(circle, rgba(255, 244, 214, 0.34), rgba(255, 226, 178, 0.12) 36%, transparent 66%);
+  filter: blur(6px); animation: sunPulse 9s ease-in-out infinite;
 }
-.hero__scroll svg { width: 22px; height: 22px; animation: bob 1.9s ease-in-out infinite; }
-@keyframes bob { 0%, 100% { transform: translateY(0); opacity: .55; } 50% { transform: translateY(7px); opacity: 1; } }
+@keyframes sunPulse { 0%, 100% { opacity: .72; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
+
+/* Třpyt světla na hladině — vypnuto */
+.hero__glints { display: none; }
+
+/* „Ponoř se" — chytrý scroll indikátor, který přitáhne oko bez tlačení */
+.hero__scroll {
+  position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); z-index: 3;
+  display: inline-flex; flex-direction: column; align-items: center; gap: 10px;
+  color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 0.76rem;
+  letter-spacing: 0.24em; text-transform: uppercase; text-shadow: 0 2px 12px rgba(0,0,0,.6);
+  transition: transform .3s var(--ease);
+}
+.hero__scroll span { transition: color .25s var(--ease); }
+.hero__scroll svg {
+  width: 44px; height: 44px; padding: 11px; border-radius: 50%;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+  /* jemná sonarová pulzace láká k prokliku, šipka zároveň poskakuje */
+  animation: bob 1.9s ease-in-out infinite, scrollPing 2.6s ease-out infinite;
+  transition: background .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease);
+}
+.hero__scroll:hover { transform: translateX(-50%) translateY(-3px); }
+.hero__scroll:hover span { color: var(--cyan); }
+.hero__scroll:hover svg {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  border-color: transparent; color: #04161f;
+  animation-play-state: paused;
+}
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+@keyframes scrollPing {
+  0%   { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.55); }
+  70%  { box-shadow: 0 0 0 16px rgba(34, 211, 238, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
+}
+
+/* Vlnící se hladina na spodku hero — tudy se „ponoříš" */
+.hero__wave { position: absolute; left: 0; right: 0; bottom: -1px; height: clamp(70px, 10vh, 130px); z-index: 2; overflow: hidden; line-height: 0; pointer-events: none; }
+.hero__wave-svg { position: absolute; bottom: 0; left: 0; width: 200%; height: 100%; }
+.hw-back path { fill: rgba(9, 46, 62, 0.7); }
+.hw-front path { fill: #0a3346; }
+.hw-back { animation: waveMove 17s linear infinite; }
+.hw-front { animation: waveMove 11s linear infinite reverse; }
+@keyframes waveMove { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Elegantní nástup obsahu hero */
+@keyframes heroIn { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+.hero__titlewrap { animation: heroIn 1s var(--ease) .05s both; }
+.hero__sub     { animation: heroIn 1s var(--ease) .2s both; }
+.hero__actions { animation: heroIn 1s var(--ease) .35s both; }
 
 /* Bublinky + sediment */
 .bubbles, .snow { position: absolute; inset: 0; }
@@ -326,6 +386,10 @@ body.nav-open .nav-toggle span:nth-child(3) { top: 22px; transform: rotate(-45de
 }
 
 .hero__inner { position: relative; z-index: 2; width: min(100% - 2.5rem, var(--container)); margin-inline: auto; }
+/* Hero na střed — zkušebně */
+.hero { text-align: center; }
+.hero__sub { margin-inline: auto; }
+.hero__actions { justify-content: center; }
 .hero__tag {
   display: inline-flex; align-items: center; gap: 10px; padding: 0.5rem 1rem; border-radius: 999px;
   background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3);
@@ -334,18 +398,29 @@ body.nav-open .nav-toggle span:nth-child(3) { top: 22px; transform: rotate(-45de
 .hero__tag .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.6); animation: pulse 2.5s infinite; }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.6);} 70%{ box-shadow: 0 0 0 12px rgba(34, 211, 238, 0);} 100%{box-shadow: 0 0 0 0 rgba(34, 211, 238, 0);} }
 
-.hero__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(3.4rem, 13vw, 10rem); line-height: 0.92; letter-spacing: -0.04em; color: #fff; margin: 1.2rem 0 0; text-shadow: 0 14px 60px rgba(0, 0, 0, 0.55); }
-.hero__sub { font-size: var(--fs-lead); color: #eef8fe; max-width: 50ch; margin-top: 1.5rem; text-shadow: 0 3px 22px rgba(0, 0, 0, 0.65); }
+.hero__titlewrap { position: relative; }
+.hero__title {
+  font-family: var(--font-display); font-weight: 700; font-size: clamp(4rem, 15vw, 12rem);
+  line-height: 0.9; letter-spacing: -0.04em; margin: 1.2rem 0 0; color: #fff;
+  filter: drop-shadow(0 12px 38px rgba(0, 0, 0, 0.55));
+}
+/* Dvoubarevný nadpis: „Lom" bílé, „Srní" tyrkysové */
+.t-white {
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+}
+.t-accent {
+  color: var(--cyan);
+  -webkit-text-fill-color: var(--cyan);
+}
+.hero__sub { font-size: clamp(0.98rem, 1.35vw, 1.15rem); color: #ffffff; font-weight: 500; max-width: 64ch; margin-top: 1.4rem; text-shadow: 0 3px 22px rgba(0, 0, 0, 0.7); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.4rem; }
 
-/* Mihotavý gradientový akcent (sdílený) */
+/* Akcent barva (sdílený) */
 .accent {
-  background: linear-gradient(110deg, var(--sky) 0%, var(--cyan) 30%, var(--teal) 55%, var(--sky) 100%);
-  background-size: 220% auto;
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-  animation: shimmer 6s linear infinite;
+  color: var(--cyan);
+  -webkit-text-fill-color: var(--cyan);
 }
-@keyframes shimmer { to { background-position: 220% center; } }
 
 /* Rotující slovo (sdílené) */
 .rotator { color: var(--cyan); display: inline-block; min-width: 8ch; font-weight: 700; transition: opacity .3s var(--ease), transform .3s var(--ease); }
@@ -360,21 +435,26 @@ body.nav-open .nav-toggle span:nth-child(3) { top: 22px; transform: rotate(-45de
   padding: clamp(4.5rem, 12vh, 8rem) 0; text-align: center;
 }
 .dive-intro__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-/* světélkující podhladí — difuzní světlo z hladiny nad tebou */
+/* difuzní světlo z hladiny shora — měkce mizí do ztracena, žádné pruhy ani hrana */
 .dive-intro__surface {
-  position: absolute; top: 0; left: 0; right: 0; height: 200px;
+  position: absolute; top: 0; left: 0; right: 0; height: 78%;
   background:
-    radial-gradient(60% 100% at 50% 0%, rgba(160, 230, 250, 0.18), transparent 70%),
-    linear-gradient(180deg, rgba(120, 205, 235, 0.10), transparent);
-  -webkit-mask-image: linear-gradient(180deg, #000, transparent);
-          mask-image: linear-gradient(180deg, #000, transparent);
+    radial-gradient(72% 95% at 50% -10%, rgba(150, 222, 245, 0.22), transparent 60%),
+    radial-gradient(42% 75% at 30% -12%, rgba(150, 222, 245, 0.10), transparent 62%),
+    radial-gradient(42% 75% at 72% -12%, rgba(150, 222, 245, 0.10), transparent 62%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 0%, transparent 100%);
 }
-/* světelné paprsky shora */
-.dive-intro__rays { position: absolute; inset: 0; overflow: hidden; }
+/* světelné paprsky shora — celá vrstva mizí dolů do ztracena */
+.dive-intro__rays {
+  position: absolute; inset: 0; overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 20%, transparent 82%);
+          mask-image: linear-gradient(180deg, #000 0%, #000 20%, transparent 82%);
+}
 .dive-intro .ray {
-  position: absolute; top: -25%; height: 150%;
-  background: linear-gradient(to bottom, rgba(150, 228, 248, 0.20), rgba(150, 228, 248, 0));
-  filter: blur(16px); transform-origin: top center; mix-blend-mode: screen;
+  position: absolute; top: -25%; height: 160%;
+  background: linear-gradient(to bottom, rgba(150, 228, 248, 0.22), rgba(150, 228, 248, 0) 85%);
+  filter: blur(18px); transform-origin: top center; mix-blend-mode: screen;
   animation: sway 14s ease-in-out infinite;
 }
 .dive-intro .ray:nth-child(1) { left: 8%;  width: 10vw; transform: rotate(9deg);  animation-delay: 0s;  opacity: .75; }
@@ -402,6 +482,8 @@ body.nav-open .nav-toggle span:nth-child(3) { top: 22px; transform: rotate(-45de
 }
 /* ryby plující pod hladinou */
 .fish { position: absolute; inset: 0; overflow: hidden; }
+/* rybí vrstva ukotvená přes celou výšku stránky — scrolluje s obsahem */
+.depthfish { z-index: 0; pointer-events: none; }
 .fish span { position: absolute; display: block; color: rgba(16, 60, 82, 0.8); animation: swim linear infinite; will-change: transform; }
 .fish span svg { width: 100%; height: 100%; display: block; fill: currentColor; }
 /* plave doprava — hlavou napřed (ryba je nakreslená hlavou doleva, proto otočit) */
@@ -748,21 +830,30 @@ body.nav-open .nav-toggle span:nth-child(3) { top: 22px; transform: rotate(-45de
 .prop { transform-box: fill-box; transform-origin: center; animation: spin 22s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Čelovky potápěčů — jemné blikání světla */
-.divers .beam, .divers .pool, .divers .lamp { animation: lampFlicker 5.5s ease-in-out infinite; }
-.divers .beam { animation-duration: 5.5s; }
-.divers .pool { animation-duration: 4.7s; }
+/* Čelovky potápěčů — ztlumené */
+.divers .beam path { opacity: 0.25; }
+.divers .pool ellipse { opacity: 0.06; }
+.divers .lamp { opacity: 0.35; }
+.divers .beam path, .divers .pool ellipse, .divers .lamp { animation: lampFlicker 5s ease-in-out infinite; }
+.divers .pool ellipse { animation-duration: 4.7s; }
 .divers .lamp { animation-duration: 3.9s; }
-@keyframes lampFlicker { 0%, 100% { opacity: 0.78; } 38% { opacity: 1; } 64% { opacity: 0.58; } }
+@keyframes lampFlicker { 0%, 100% { opacity: 0.3; } 38% { opacity: 0.45; } 64% { opacity: 0.2; } }
+.divers .blink { animation: lampBlink 2.8s linear infinite !important; }
+@keyframes lampBlink {
+  0%, 100% { opacity: 0.4; }
+  5% { opacity: 0.05; } 9% { opacity: 0.4; }
+  24% { opacity: 0.4; } 27% { opacity: 0.1; } 31% { opacity: 0.4; }
+  58% { opacity: 0.35; } 62% { opacity: 0.06; } 66% { opacity: 0.4; }
+}
 
 /* =========================================================
    FOOTER
    ========================================================= */
 .footer { position: relative; z-index: 2; padding: clamp(2rem, 5vh, 3.5rem) 0 2.5rem; color: var(--muted); background: #000; }
-/* jemné dotmavení nad patičkou, aby dno scény plynule přešlo do černé */
+/* dotmavení nad patičkou, aby dno scény plynule přešlo do hluboké černé */
 .footer::before {
-  content: ""; position: absolute; left: 0; right: 0; top: -7rem; bottom: 0; z-index: -1; pointer-events: none;
-  background: linear-gradient(180deg, transparent 0%, #000 65%);
+  content: ""; position: absolute; left: 0; right: 0; top: -13rem; bottom: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, #000 45%);
 }
 .footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
 .footer .brand__name, .footer .brand__name b { color: #fff; }

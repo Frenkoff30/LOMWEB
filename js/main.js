@@ -113,7 +113,7 @@
   /* ---- Bublinky v hero ---- */
   const bubbles = document.getElementById("bubbles");
   if (bubbles && !reduceMotion) {
-    const count = window.innerWidth < 700 ? 14 : 26;
+    const count = window.innerWidth < 700 ? 9 : 16;
     for (let i = 0; i < count; i++) {
       const b = document.createElement("span");
       b.className = "bubble";
@@ -147,7 +147,7 @@
   /* ---- Ambientní bublinky přes celý web ---- */
   const ambient = document.getElementById("ambientBubbles");
   if (ambient && !reduceMotion) {
-    const n = window.innerWidth < 700 ? 10 : 20;
+    const n = window.innerWidth < 700 ? 6 : 12;
     for (let i = 0; i < n; i++) {
       const b = document.createElement("span");
       b.className = "bubble";
@@ -164,19 +164,22 @@
   /* ---- Ryby plující pod hladinou přes celý web ---- */
   const fishBox = document.getElementById("ambientFish");
   if (fishBox && !reduceMotion) {
-    const fishSvg =
-      '<svg viewBox="0 0 32 16" xmlns="http://www.w3.org/2000/svg">' +
-      '<path d="M2 8 Q 12 1 22 8 Q 12 15 2 8 Z"/>' +
-      '<path d="M22 8 L 31 2.5 L 31 13.5 Z"/>' +
-      '<circle cx="7" cy="6.6" r="1.1" fill="#02141d"/></svg>';
-    const n = window.innerWidth < 700 ? 4 : 9;
+    const fishSvgs = [
+      // kapr — oblé tělo, trojúhelníková ploutev
+      '<svg viewBox="0 0 32 16" xmlns="http://www.w3.org/2000/svg"><path d="M2 8 Q 12 1 22 8 Q 12 15 2 8 Z"/><path d="M22 8 L 31 2.5 L 31 13.5 Z"/><circle cx="7" cy="6.6" r="1.1" fill="#02141d"/></svg>',
+      // štíhlá ryba — protáhlé tělo, hřbetní ploutev
+      '<svg viewBox="0 0 32 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8 Q 14 3.5 23 8 Q 14 12.5 1 8 Z"/><path d="M23 8 L 31 4 L 31 12 Z"/><path d="M11 5 L 14 1.5 L 15.5 6 Z"/><circle cx="6" cy="7" r="1" fill="#02141d"/></svg>',
+      // buclatá ryba — vidlicovitý ocas
+      '<svg viewBox="0 0 32 16" xmlns="http://www.w3.org/2000/svg"><path d="M3 8 Q 11 0.5 20 8 Q 11 15.5 3 8 Z"/><path d="M20 8 L 31 3 L 27 8 L 31 13 Z"/><circle cx="8" cy="6.5" r="1.2" fill="#02141d"/></svg>'
+    ];
+    const n = window.innerWidth < 700 ? 14 : 26;
     for (let i = 0; i < n; i++) {
       const f = document.createElement("span");
-      f.innerHTML = fishSvg;
+      f.innerHTML = fishSvgs[Math.floor(Math.random() * fishSvgs.length)];
       const w = 26 + Math.random() * 74;
       f.style.width = w + "px";
       f.style.height = w * 0.5 + "px";
-      f.style.top = 4 + Math.random() * 90 + "%";
+      f.style.top = 6 + Math.random() * 88 + "%";
       f.style.color = "rgba(16, 60, 82, " + (0.4 + Math.random() * 0.42).toFixed(2) + ")";
       f.style.animationName = Math.random() > 0.5 ? "swim" : "swimFlip";
       f.style.animationDuration = 18 + Math.random() * 26 + "s";
@@ -199,6 +202,22 @@
       s.style.animationDuration = 16 + Math.random() * 20 + "s";
       s.style.animationDelay = -Math.random() * 30 + "s";
       ambientSnow.appendChild(s);
+    }
+  }
+
+  /* ---- Bioluminiscence — vypnuto (žádné třpytivé tečky) ---- */
+
+  /* ---- Třpyt světla na hladině v hero ---- */
+  const heroGlints = document.getElementById("heroGlints");
+  if (heroGlints && !reduceMotion) {
+    const n = window.innerWidth < 700 ? 9 : 16;
+    for (let i = 0; i < n; i++) {
+      const g = document.createElement("span");
+      g.style.left = Math.random() * 100 + "%";
+      g.style.top = 48 + Math.random() * 46 + "%"; /* spodní polovina = vodní hladina */
+      g.style.animationDuration = 2.4 + Math.random() * 3.5 + "s";
+      g.style.animationDelay = -Math.random() * 6 + "s";
+      heroGlints.appendChild(g);
     }
   }
 
