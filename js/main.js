@@ -335,4 +335,21 @@
       slides[si].classList.add("is-active");
     }, 5000);
   }
+
+  /* ---- Scéna na dně: na úzkém mobilu ukázat celou scénu (auto i letadlo) ---- */
+  const deepSvg = document.querySelector(".deep__scene svg");
+  if (deepSvg) {
+    const setDeepFit = () => {
+      deepSvg.setAttribute(
+        "preserveAspectRatio",
+        window.innerWidth <= 700 ? "xMidYMax meet" : "xMidYMax slice"
+      );
+    };
+    setDeepFit();
+    let dResize;
+    window.addEventListener("resize", () => {
+      clearTimeout(dResize);
+      dResize = setTimeout(setDeepFit, 150);
+    });
+  }
 })();
