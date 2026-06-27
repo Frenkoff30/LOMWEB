@@ -736,16 +736,39 @@ body.nav-open .nav-toggle span:nth-child(3) { top: 22px; transform: rotate(-45de
 .news__panel .year-badge { font-family: var(--font-display); font-size: clamp(3rem, 8vw, 5rem); font-weight: 700; line-height: 1; color: rgba(56, 189, 248, 0.3); }
 .news__panel h3 { font-size: var(--fs-h3); margin-top: 0.5rem; position: relative; color: #fff; }
 .news__panel p { color: #c7e6f5; margin-top: 1rem; position: relative; }
-.checklist { display: grid; gap: 1rem; }
-.checklist li {
-  display: flex; gap: 14px; align-items: flex-start; padding: 1rem 1.2rem; border-radius: var(--radius-sm);
+/* Novinky 2026 — karty s ikonami místo fajfek */
+.news-list { display: grid; gap: 0.85rem; }
+.news-item {
+  position: relative; overflow: hidden;
+  display: flex; gap: 16px; align-items: center; padding: 1rem 1.3rem; border-radius: var(--radius-sm);
   background: var(--glass); border: 1px solid var(--border); backdrop-filter: blur(8px);
-  transition: transform .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
+  transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease);
 }
-.checklist li:hover { transform: translateX(6px); border-color: var(--border-bright); box-shadow: var(--shadow-sm); }
-.checklist .tick { width: 30px; height: 30px; border-radius: 50%; flex: none; display: grid; place-items: center; background: linear-gradient(135deg, var(--teal-600), var(--cyan)); color: #04161f; }
-.checklist .tick svg { width: 18px; height: 18px; }
-.checklist span { color: var(--text-strong); font-weight: 500; }
+/* boční akcentní pruh */
+.news-item::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(var(--cyan), var(--teal)); opacity: .45; transition: opacity .35s var(--ease);
+}
+.news-item:hover {
+  transform: translateX(7px); border-color: var(--border-bright);
+  box-shadow: var(--shadow-sm); background: var(--glass-strong);
+}
+.news-item:hover::before { opacity: 1; }
+.news-item__ico {
+  width: 46px; height: 46px; border-radius: 13px; flex: none; display: grid; place-items: center;
+  background: rgba(56, 189, 248, 0.12); border: 1px solid var(--border); color: var(--cyan);
+  transition: background .35s var(--ease), color .35s var(--ease), transform .35s var(--ease);
+}
+.news-item__ico svg { width: 23px; height: 23px; }
+.news-item:hover .news-item__ico {
+  background: linear-gradient(135deg, var(--teal-600), var(--cyan)); color: #04161f; transform: scale(1.08);
+}
+.news-item .txt { color: var(--text-strong); font-weight: 500; line-height: 1.4; }
+/* střídání barev ikon pro živější dojem */
+.news-item:nth-child(2) .news-item__ico { color: var(--teal); }
+.news-item:nth-child(3) .news-item__ico { color: var(--sky); }
+.news-item:nth-child(4) .news-item__ico { color: var(--teal); }
+.news-item:nth-child(5) .news-item__ico { color: var(--cyan); }
 
 /* =========================================================
    FOTOGALERIE
