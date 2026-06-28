@@ -174,7 +174,6 @@ h1, h2, h3, h4, h5 {
   font-size: var(--fs-lead); color: var(--text); max-width: 60ch; margin-top: 1.2rem;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.65);
 }
-.bubble-panel .section-title, .bubble-panel .section-lead { text-shadow: none; }
 
 .section-head { max-width: 720px; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
 .section-head.center { margin-inline: auto; text-align: center; }
@@ -310,35 +309,34 @@ body.nav-open .nav-toggle span:nth-child(3) { top: 22px; transform: rotate(-45de
 /* „Ponoř se" — chytrý scroll indikátor, který přitáhne oko bez tlačení */
 .hero__scroll {
   position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); z-index: 3;
-  display: inline-flex; flex-direction: column; align-items: center; gap: 10px;
-  color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 0.76rem;
-  letter-spacing: 0.24em; text-transform: uppercase; text-shadow: 0 2px 12px rgba(0,0,0,.6);
+  display: inline-flex; flex-direction: column; align-items: center; gap: 12px;
+  color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 0.82rem;
+  letter-spacing: 0.26em; text-transform: uppercase; text-shadow: 0 2px 12px rgba(0,0,0,.6);
   transition: transform .3s var(--ease);
 }
 .hero__scroll span { transition: color .25s var(--ease); }
 .hero__scroll svg {
-  width: 44px; height: 44px; padding: 11px; border-radius: 50%;
+  width: 56px; height: 56px; padding: 15px; border-radius: 50%;
   color: #fff;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
-  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  background: rgba(34, 211, 238, 0.14);
+  border: 2px solid rgba(255, 255, 255, 0.65);
   box-sizing: border-box;
-  /* jemná sonarová pulzace láká k prokliku, šipka zároveň poskakuje */
-  animation: bob 1.9s ease-in-out infinite, scrollPing 2.6s ease-out infinite;
-  transition: background .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease);
+  /* sonarová pulzace + stálá kruhová záře (žádný backdrop-filter → na iOS žádný čtverec) */
+  animation: bob 1.9s ease-in-out infinite, scrollPing 2.4s ease-out infinite;
+  transition: background .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease), transform .3s var(--ease);
 }
 .hero__scroll:hover { transform: translateX(-50%) translateY(-3px); }
 .hero__scroll:hover span { color: var(--cyan); }
 .hero__scroll:hover svg {
   background: linear-gradient(135deg, var(--blue), var(--cyan));
-  border-color: transparent; color: #04161f;
+  border-color: transparent; color: #04161f; transform: scale(1.08);
   animation-play-state: paused;
 }
-@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(7px); } }
 @keyframes scrollPing {
-  0%   { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.55); }
-  70%  { box-shadow: 0 0 0 16px rgba(34, 211, 238, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
+  0%   { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.6),  0 0 18px 2px rgba(34, 211, 238, 0.35); }
+  70%  { box-shadow: 0 0 0 20px rgba(34, 211, 238, 0), 0 0 18px 2px rgba(34, 211, 238, 0.35); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0),    0 0 18px 2px rgba(34, 211, 238, 0.35); }
 }
 
 /* Vlnící se hladina na spodku hero — tudy se „ponoříš" */
@@ -535,28 +533,22 @@ body.nav-open .nav-toggle span:nth-child(3) { top: 22px; transform: rotate(-45de
   backdrop-filter: blur(14px) saturate(140%); border-radius: var(--radius);
 }
 
-/* Bílá „bublina" — světlý ostrůvek textu v tmavé vodě */
+/* Panel „O nás" — tmavé sklo jako zbytek webu */
 .bubble-panel {
   position: relative; overflow: hidden;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 34px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px) saturate(140%);
+  border-radius: var(--radius);
   padding: clamp(1.8rem, 4vw, 3.2rem);
-  box-shadow:
-    0 -30px 80px -38px rgba(56, 189, 248, 0.4),
-    0 44px 100px -40px rgba(0, 0, 0, 0.7),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
 }
 .bubble-panel::after {
   content: ""; position: absolute; top: -28%; left: -8%; width: 55%; height: 65%;
-  background: radial-gradient(circle at 32% 32%, rgba(255, 255, 255, 0.9), transparent 60%);
-  opacity: 0.55; pointer-events: none; border-radius: 50%;
+  background: radial-gradient(circle at 32% 32%, rgba(56, 189, 248, 0.12), transparent 60%);
+  opacity: 1; pointer-events: none; border-radius: 50%;
 }
-.bubble-panel, .bubble-panel p, .bubble-panel li, .bubble-panel .tl-item p { color: var(--slate); }
-.bubble-panel h1, .bubble-panel h2, .bubble-panel h3, .bubble-panel h4, .bubble-panel h5,
-.bubble-panel .section-title, .bubble-panel strong { color: var(--ink-dark); }
-.bubble-panel .eyebrow, .bubble-panel .tl-item .year { color: var(--blue-600); }
-.bubble-panel .tl-item::before { background: #fff; border-color: var(--blue-600); }
+.bubble-panel strong { color: var(--text-strong); }
 
 /* =========================================================
    O NÁS + TIMELINE
@@ -708,20 +700,20 @@ body.nav-open .nav-toggle span:nth-child(3) { top: 22px; transform: rotate(-45de
    ========================================================= */
 .rules__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
 .rule {
-  position: relative; overflow: hidden; padding: 1.7rem; border-radius: 26px;
-  background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 0 -18px 46px -28px rgba(56, 189, 248, 0.32), 0 30px 70px -34px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+  position: relative; overflow: hidden; padding: 1.7rem; border-radius: var(--radius);
+  background: var(--glass); border: 1px solid var(--border); backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease), background .4s var(--ease);
 }
 .rule::after {
   content: ""; position: absolute; top: -30%; left: -10%; width: 55%; height: 60%;
-  background: radial-gradient(circle at 32% 32%, rgba(255, 255, 255, 0.9), transparent 60%);
-  opacity: 0.5; pointer-events: none; border-radius: 50%;
+  background: radial-gradient(circle at 32% 32%, rgba(56, 189, 248, 0.12), transparent 60%);
+  opacity: 1; pointer-events: none; border-radius: 50%;
 }
-.rule:hover { transform: translateY(-6px); box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7); }
-.rule__no { font-family: var(--font-display); font-weight: 700; color: rgba(2, 132, 199, 0.35); font-size: 2rem; line-height: 1; }
-.rule h4 { color: var(--ink-dark); margin: 0.5rem 0 0.4rem; font-size: 1.08rem; position: relative; }
-.rule p { color: var(--slate); font-size: 0.92rem; position: relative; }
+.rule:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--border-bright); background: var(--glass-strong); }
+.rule__no { font-family: var(--font-display); font-weight: 700; color: rgba(56, 189, 248, 0.4); font-size: 2rem; line-height: 1; }
+.rule h4 { color: var(--text-strong); margin: 0.5rem 0 0.4rem; font-size: 1.08rem; position: relative; }
+.rule p { color: var(--text); font-size: 0.92rem; position: relative; }
 
 /* =========================================================
    AKTUALITY
@@ -740,7 +732,7 @@ body.nav-open .nav-toggle span:nth-child(3) { top: 22px; transform: rotate(-45de
 .news-list { display: grid; gap: 0.85rem; }
 .news-item {
   position: relative; overflow: hidden;
-  display: flex; gap: 16px; align-items: center; padding: 1rem 1.3rem; border-radius: var(--radius-sm);
+  display: flex; align-items: center; padding: 1.1rem 1.4rem; border-radius: var(--radius-sm);
   background: var(--glass); border: 1px solid var(--border); backdrop-filter: blur(8px);
   transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease);
 }
@@ -754,21 +746,7 @@ body.nav-open .nav-toggle span:nth-child(3) { top: 22px; transform: rotate(-45de
   box-shadow: var(--shadow-sm); background: var(--glass-strong);
 }
 .news-item:hover::before { opacity: 1; }
-.news-item__ico {
-  width: 46px; height: 46px; border-radius: 13px; flex: none; display: grid; place-items: center;
-  background: rgba(56, 189, 248, 0.12); border: 1px solid var(--border); color: var(--cyan);
-  transition: background .35s var(--ease), color .35s var(--ease), transform .35s var(--ease);
-}
-.news-item__ico svg { width: 23px; height: 23px; }
-.news-item:hover .news-item__ico {
-  background: linear-gradient(135deg, var(--teal-600), var(--cyan)); color: #04161f; transform: scale(1.08);
-}
 .news-item .txt { color: var(--text-strong); font-weight: 500; line-height: 1.4; }
-/* střídání barev ikon pro živější dojem */
-.news-item:nth-child(2) .news-item__ico { color: var(--teal); }
-.news-item:nth-child(3) .news-item__ico { color: var(--sky); }
-.news-item:nth-child(4) .news-item__ico { color: var(--teal); }
-.news-item:nth-child(5) .news-item__ico { color: var(--cyan); }
 
 /* =========================================================
    FOTOGALERIE
